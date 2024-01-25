@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit{
   }
   
   GetUserDetails(){
-    const id = '12';
+    const id = '15'; 
     this.dataService.getLoggedInUserData(id).subscribe(
       (data) =>{
         this.FirstName = data.fetchresult[0].FirstName;
@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit{
         contact: this.Contact, 
         department: this.Department
       }
-      const id = '12';
+      const id = '15';
       this.dataService.UpdateLoggedInUserData(id, data).subscribe(
         () => {
           console.log('Update Successfully');

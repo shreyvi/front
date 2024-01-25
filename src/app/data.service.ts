@@ -36,4 +36,11 @@ export class DataService {
     return this.http.put(`${this.API_URL}/editUser/${id}`, data);
   }
 
+  deleteUser(id:string): Observable<any>{
+    return this.http.delete(`${this.API_URL}/deleteUser/${id}`);
+  }
+
+  addUser(data:any){
+    return this.http.post(`${this.API_URL}/addUser/`, data);
+  }
 } 

@@ -12,7 +12,6 @@ export interface PeriodicElement {
   salaryA:string;
   salaryB:string;
   salaryC:string;
-
 }
 
 
@@ -22,7 +21,7 @@ export interface PeriodicElement {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  displayedColumns: string[] = ['fname', 'lname', 'contact', 'salary', 'department'];
+  displayedColumns: string[] = ['fname', 'lname', 'contact', 'salary', 'department', 'action'];
   dataSource:  PeriodicElement[] = [];
   displayedColumns1: string[] = ['fname', 'lname', 'contact', 'salary', 'department'];
   dataSource1:  PeriodicElement[] = [];
@@ -125,6 +124,21 @@ export class HomeComponent implements OnInit {
     
   }
   
+  editUser(user: any){
+    console.log(user);
+  }
 
-  
+  deleteUser(user: any){
+    const id = user.ID;
+    this.dataService.deleteUser(id).subscribe(
+      () =>{
+        console.log("Successfully Delete the User!");
+        this.ngOnInit();
+      },
+      (error) =>{
+        console.error("Error While deleting the User!", error);
+      }
+    );
+
+  }
 }

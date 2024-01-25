@@ -12,4 +12,11 @@ import { Router } from '@angular/router';
     profile() {
       this.router.navigate(['/profile']);
     }
+    home() {
+      this.router.navigate(['/home']);
+    }
+
+    addUser(){
+      this.router.navigate(['/add']);
+    }
   }

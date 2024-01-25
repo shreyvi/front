@@ -1,0 +1,33 @@
+.profile{
+    padding-top: 10vh;
+    padding-bottom: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-profile{
+    width: 600px;
+    padding-top: 60px;
+    background-image: linear-gradient(to right top, #99bc85, #a0c18d, #a7c694, #aecc9c, #b5d1a4, #bad5a9, #bfd8af, #c4dcb4, #c8dfb8, #cce1bc, #d0e4c1, #d4e7c5);
+
+}
+
+.full-form{
+  width: 100%;
+}
+
+.matIconSuffix{
+  color: 000;
+}
+
+@media screen and (min-width: 320px) and (max-width: 400px) {
+  .card-profile {
+    width: 100%;
+  }
+}
+
+
+.addUser{
+    font-size: 1.2rem;
+    font-weight: 550;
+}
