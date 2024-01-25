@@ -1,8 +1,8 @@
 .home{
-    background-color: rgb(135, 197, 197);
-    height: 100vh;
+    background-color:rgb(223, 235, 217);
+    padding-bottom: 70px;
+    margin-top: 60px;
 }
-
 .card-title,
 .card-text{
     font-size: 1.5rem;
@@ -14,7 +14,7 @@
 }
 
 .salary-groupA{
-    color: green;
+    color: rgb(43, 214, 37);
     font-weight: 600;
 }
 
@@ -23,3 +23,8 @@
     color: red;
     font-weight: 600;
 }
+.salary-groupC{
+    color: blue;
+    font-weight: 600;
+}
+

@@ -1,0 +1,48 @@
+<div class="container profile">
+    <div class="row pt-2 mb-2">
+        <div class="col-12 mb-2">
+            <mat-card class="card-profile">
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-12 text-center mb-2 ">
+                            <img style="height:50px;" src="https://clipground.com/images/profile-logo-3.png">
+                        </div>
+                        <div class="col-12 mb-2">
+                            <mat-form-field class="full-form"  appearance="fill">
+                                <mat-label>First Name</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="FirstName">
+                                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-12 mb-2">
+                            <mat-form-field class="full-form"  appearance="fill">
+                                <mat-label>Last Name</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="LastName">
+                                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-12 mb-2">
+                            <mat-form-field class="full-form"  appearance="fill">
+                                <mat-label>Department</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="Department">
+                                <mat-icon matSuffix>home</mat-icon>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-12 mb-2">
+                            <mat-form-field class="full-form"  appearance="fill">
+                                <mat-label>Contact</mat-label>
+                                <input matInput placeholder="Placeholder" [(ngModel)]="Contact">
+                                <mat-icon matSuffix>phone</mat-icon>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-12 text-center mb">
+                            <button mat-raised-button  style="background-color: #5EC2BB;" (click)="update()">Update</button>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

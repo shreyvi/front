@@ -18,4 +18,22 @@ export class DataService {
   fetchSoftware(department: string): Observable<any>{
     return this.http.get(`${this.API_URL}/department/${department}`);
   }
-}
+  fetchsalaryA(): Observable<any>{
+    return this.http.get(`${this.API_URL}/salaryA`);
+  }
+  fetchsalaryB(): Observable<any>{
+    return this.http.get(`${this.API_URL}/salaryB`);
+  }
+  fetchsalaryC(): Observable<any>{
+    return this.http.get(`${this.API_URL}/salaryC`);
+  }
+
+  getLoggedInUserData(id:string): Observable<any>{
+    return this.http.get(`${this.API_URL}/employee/${id}`);
+  }
+
+  UpdateLoggedInUserData(id:string, data:any ): Observable<any>{
+    return this.http.put(`${this.API_URL}/editUser/${id}`, data);
+  }
+
+} 

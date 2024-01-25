@@ -28,7 +28,7 @@
             <div class="card card1">
                 <div class="card-body">
                   <h4 class="card-title text-center">Salary(Group A)</h4>
-                  <h6 class="card-text text-center">12</h6>
+                  <h6 class=" card-text text-center">{{salaryACount}}</h6>
                 </div>
               </div>
         </div>
@@ -36,7 +36,7 @@
             <div class="card card1">
                 <div class="card-body">
                   <h4 class="card-title text-center">Salary(Group B)</h4>
-                  <h6 class="card-text text-center">12</h6>
+                  <h6 class="card-text text-center">{{salaryBCount}}</h6>
                 </div>
               </div>
         </div>
@@ -44,60 +44,234 @@
             <div class="card card1">
                 <div class="card-body">
                   <h4 class="card-title text-center">Salary(Group C)</h4>
-                  <h6 class="card-text text-center">12</h6>
+                  <h6 class="card-text text-center">{{salaryCCount}}</h6>
                 </div>
               </div>
         </div>
     </div>
-    <div class="row pt-2 mb-2">
-      <div class="col-12">
-        <div class="card card1">
-          <div class="card-body">
-            <table mat-table [dataSource]="dataSource" class="">
-
-              <!--- Note that these columns can be defined in any order.
-                    The actual rendered columns are set as a property on the row definition" -->
-            
-              <!-- Position Column -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <mat-tab-group>
+            <mat-tab label="Total">
+              <table mat-table [dataSource]="dataSource" class="">
+              
+                <ng-container matColumnDef="fname">
+                  <th mat-header-cell *matHeaderCellDef> First Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.FirstName}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="lname">
+                  <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.LastName }} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="contact">
+                  <th mat-header-cell *matHeaderCellDef> Contact </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Contact}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="salary">
+                  <th mat-header-cell *matHeaderCellDef> Salary </th>
+                  <td mat-cell *matCellDef="let element" [ngClass]="{'salary-groupA': element.Salary >= 10000 && element.Salary <= 15000,
+                                'salary-groupB': element.Salary > 15001 && element.Salary <= 25000,
+                                'salary-groupC': element.Salary > 25001 && element.Salary <= 30000}">
+                    {{ element.Salary >= 10000 && element.Salary <= 15000 ? 'GroupA' : (element.Salary> 15000 && element.Salary <=
+                        25000 ? 'GroupB' : 'GroupC' ) }} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="department">
+                  <th mat-header-cell *matHeaderCellDef> Department </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Department}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+          </mat-tab>
+            <mat-tab label="Software"> 
+              <table mat-table [dataSource]="dataSource1" class="">
+              
+                <ng-container matColumnDef="fname">
+                  <th mat-header-cell *matHeaderCellDef> First Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.FirstName}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="lname">
+                  <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.LastName }} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="contact">
+                  <th mat-header-cell *matHeaderCellDef> Contact </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Contact}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="salary">
+                  <th mat-header-cell *matHeaderCellDef> Salary </th>
+                  <td mat-cell *matCellDef="let element" [ngClass]="{'salary-groupA': element.Salary >= 10000 && element.Salary <= 15000,
+                                'salary-groupB': element.Salary > 15001 && element.Salary <= 25000,
+                                'salary-groupC': element.Salary > 25001 && element.Salary <= 30000}">
+                    {{ element.Salary >= 10000 && element.Salary <= 15000 ? 'GroupA' : (element.Salary> 15000 && element.Salary <=
+                        25000 ? 'GroupB' : 'GroupC' ) }} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="department">
+                  <th mat-header-cell *matHeaderCellDef> Department </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Department}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+              </table>  
+            </mat-tab>
+            <mat-tab label="Hardware"> 
+              <table mat-table [dataSource]="dataSource2" class="">
+              
+                <ng-container matColumnDef="fname">
+                  <th mat-header-cell *matHeaderCellDef> First Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.FirstName}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="lname">
+                  <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.LastName }} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="contact">
+                  <th mat-header-cell *matHeaderCellDef> Contact </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Contact}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="salary">
+                  <th mat-header-cell *matHeaderCellDef> Salary </th>
+                  <td mat-cell *matCellDef="let element" [ngClass]="{'salary-groupA': element.Salary >= 10000 && element.Salary <= 15000,
+                                'salary-groupB': element.Salary > 15000 && element.Salary <= 25000,
+                                'salary-groupC': element.Salary > 25000 && element.Salary <= 30000}">
+                    {{ element.Salary >= 10000 && element.Salary <= 15000 ? 'GroupA' : (element.Salary> 15000 && element.Salary <=
+                        25000 ? 'GroupB' : 'GroupC' ) }} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="department">
+                  <th mat-header-cell *matHeaderCellDef> Department </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Department}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+              </table>
+            </mat-tab>
+            <mat-tab label="GroupA"> 
+              <table mat-table [dataSource]="dataSource3" class="">
+              
               <ng-container matColumnDef="fname">
                 <th mat-header-cell *matHeaderCellDef> First Name </th>
                 <td mat-cell *matCellDef="let element"> {{element.FirstName}} </td>
               </ng-container>
             
-              <!-- Name Column -->
               <ng-container matColumnDef="lname">
                 <th mat-header-cell *matHeaderCellDef> Last Name </th>
                 <td mat-cell *matCellDef="let element"> {{element.LastName }} </td>
               </ng-container>
             
-              <!-- Weight Column -->
               <ng-container matColumnDef="contact">
                 <th mat-header-cell *matHeaderCellDef> Contact </th>
                 <td mat-cell *matCellDef="let element"> {{element.Contact}} </td>
               </ng-container>
             
-              <!-- Symbol Column -->
               <ng-container matColumnDef="salary">
                 <th mat-header-cell *matHeaderCellDef> Salary </th>
-                <td mat-cell *matCellDef="let element" [ngClass]="{'salary-groupA': element.Salary > 15000, 'salary-groupB': element.Salary <= 15000}">
-                  {{ element.Salary > 15000 ? 'GroupA' : 'GroupB' }}
-                </td>
+                <td mat-cell *matCellDef="let element" [ngClass]="{'salary-groupA': element.Salary >= 10000 && element.Salary <= 15000,
+                              'salary-groupB': element.Salary > 15000 && element.Salary <= 25000,
+                              'salary-groupC': element.Salary > 25000 && element.Salary <= 30000}">
+                  {{ element.Salary >= 10000 && element.Salary <= 15000 ? 'GroupA' : (element.Salary> 15000 && element.Salary <=
+                      25000 ? 'GroupB' : 'GroupC' ) }} </td>
               </ng-container>
-              
-
+            
               <ng-container matColumnDef="department">
                 <th mat-header-cell *matHeaderCellDef> Department </th>
                 <td mat-cell *matCellDef="let element"> {{element.Department}} </td>
               </ng-container>
             
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-            
-            
-          </div>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns3;"></tr>
+            </table></mat-tab>
+            <mat-tab label="GroupB">
+              <table mat-table [dataSource]="dataSource4" class="">
+              
+                <ng-container matColumnDef="fname">
+                  <th mat-header-cell *matHeaderCellDef> First Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.FirstName}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="lname">
+                  <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.LastName }} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="contact">
+                  <th mat-header-cell *matHeaderCellDef> Contact </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Contact}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="salary">
+                  <th mat-header-cell *matHeaderCellDef> Salary </th>
+                  <td mat-cell *matCellDef="let element" [ngClass]="{'salary-groupA': element.Salary >= 10000 && element.Salary <= 15000,
+                                'salary-groupB': element.Salary > 15001 && element.Salary <= 25000,
+                                'salary-groupC': element.Salary > 25001 && element.Salary <= 30000}">
+                    {{ element.Salary >= 10000 && element.Salary <= 15000 ? 'GroupA' : (element.Salary> 15000 && element.Salary <=
+                        25000 ? 'GroupB' : 'GroupC' ) }} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="department">
+                  <th mat-header-cell *matHeaderCellDef> Department </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Department}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns4"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns4;"></tr>
+              </table>
+            </mat-tab>
+            <mat-tab label="GroupC"> 
+              <table mat-table [dataSource]="dataSource5" class="">
+              
+                <ng-container matColumnDef="fname">
+                  <th mat-header-cell *matHeaderCellDef> First Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.FirstName}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="lname">
+                  <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.LastName }} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="contact">
+                  <th mat-header-cell *matHeaderCellDef> Contact </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Contact}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="salary">
+                  <th mat-header-cell *matHeaderCellDef> Salary </th>
+                  <td mat-cell *matCellDef="let element" [ngClass]="{'salary-groupA': element.Salary >= 10000 && element.Salary <= 15000,
+                                'salary-groupB': element.Salary > 15001 && element.Salary <= 25000,
+                                'salary-groupC': element.Salary > 25001 && element.Salary <= 30000}">
+                    {{ element.Salary >= 10000 && element.Salary <= 15000 ? 'GroupA' : (element.Salary> 15000 && element.Salary <=
+                        25000 ? 'GroupB' : 'GroupC' ) }} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="department">
+                  <th mat-header-cell *matHeaderCellDef> Department </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Department}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns5"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns5;"></tr>
+              </table>
+            </mat-tab>
+          </mat-tab-group>
         </div>
       </div>
-    </div>    
-</div>
+      </div>
+    </div>
+
 

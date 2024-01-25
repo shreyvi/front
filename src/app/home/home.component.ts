@@ -1,5 +1,7 @@
 import { Component ,OnInit} from '@angular/core';
-import { DataService } from '../data.service'
+import { DataService } from '../data.service';
+
+
 
 export interface PeriodicElement {
   fname: string;
@@ -7,6 +9,10 @@ export interface PeriodicElement {
   contact: string;
   salary: string;
   department: string;
+  salaryA:string;
+  salaryB:string;
+  salaryC:string;
+
 }
 
 
@@ -17,7 +23,18 @@ export interface PeriodicElement {
 })
 export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['fname', 'lname', 'contact', 'salary', 'department'];
-  dataSource: any = [];
+  dataSource:  PeriodicElement[] = [];
+  displayedColumns1: string[] = ['fname', 'lname', 'contact', 'salary', 'department'];
+  dataSource1:  PeriodicElement[] = [];
+  displayedColumns2: string[] = ['fname', 'lname', 'contact', 'salary', 'department'];
+  dataSource2:  PeriodicElement[] = [];
+  displayedColumns3: string[] = ['fname', 'lname', 'contact', 'salary', 'department'];
+  dataSource3:  PeriodicElement[] = [];
+  displayedColumns4: string[] = ['fname', 'lname', 'contact', 'salary', 'department'];
+  dataSource4:  PeriodicElement[] = [];
+  displayedColumns5: string[] = ['fname', 'lname', 'contact', 'salary', 'department'];
+  dataSource5:  PeriodicElement[] = [];
+ 
 
   employee!: any;
   employeeCount!: any;
@@ -25,6 +42,12 @@ export class HomeComponent implements OnInit {
   softwareCount!: any;
   hardware!: any;
   hardwareCount!: any;
+  salaryA:PeriodicElement[] = [];
+  salaryACount!:number;
+  salaryB:PeriodicElement[] = [];
+  salaryBCount!:number;
+  salaryC:PeriodicElement[] = [];
+  salaryCCount!:number;
   
   constructor(private dataService: DataService) {}
 
@@ -43,11 +66,11 @@ export class HomeComponent implements OnInit {
     this.dataService.fetchSoftware(dept).subscribe(
       (data: any) =>{
         console.log(data);
-        this.software = data.fetchdepresult;
-        this.softwareCount = this.software.length;
+        this.dataSource1 = data.fetchdepresult;
+        this.softwareCount = this.dataSource1.length;
         console.log(this.softwareCount);
       },
-      () =>{
+      () => {
 
       }
     );
@@ -56,13 +79,52 @@ export class HomeComponent implements OnInit {
     this.dataService.fetchSoftware(dept2).subscribe(
       (data: any) =>{
         console.log(data);
-        this.hardware = data.fetchdepresult;
-        this.hardwareCount = this.hardware.length;
+        this.dataSource2 = data.fetchdepresult;
+        this.hardwareCount = this.dataSource2.length;
         console.log(this.hardwareCount);
+      },
+      () => {
+
+      }
+    );
+    
+    this.dataService.fetchsalaryA().subscribe(
+      (data: any) => {
+        console.log(data);
+        this.dataSource3 = data.fetchsalresult;
+        this.salaryACount = this.dataSource3.length;
+        console.log(this.salaryACount);
+      },
+      () => {
+
+      }
+    );
+
+    this.dataService.fetchsalaryB().subscribe(
+      (data: any) => {
+        console.log(data);
+        this.dataSource4= data.fetchsalresult;
+        this.salaryBCount = this.dataSource4.length;
+        console.log(this.salaryBCount);
       },
       () =>{
 
       }
     );
+    this.dataService.fetchsalaryC().subscribe(
+      (data: any) => {
+        console.log(data);
+        this.dataSource5 = data.fetchsalresult;
+        this.salaryCCount = this.dataSource5.length;
+        console.log(this.salaryCCount);
+      },
+      () => {
+
+      }
+    );
+    
   }
+  
+
+  
 }

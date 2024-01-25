@@ -1,0 +1,13 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.mat-toolbar{
+    background-image: linear-gradient(to right top, #99bc85, #a0c18d, #a7c694, #aecc9c, #b5d1a4, #bad5a9, #bfd8af, #c4dcb4, #c8dfb8, #cce1bc, #d0e4c1, #d4e7c5);
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Adjust the z-index value based on your layout */
+}
