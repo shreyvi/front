@@ -8,7 +8,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -25,6 +24,9 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AdduserComponent } from './adduser/adduser.component';
+import { DialogueComponent } from './dialogue/dialogue.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { AdduserComponent } from './adduser/adduser.component';
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    AdduserComponent
+    AdduserComponent,
+    DialogueComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { AdduserComponent } from './adduser/adduser.component';
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule, ReactiveFormsModule,
-    MatCardModule,
+    MatCardModule,MatDialogModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

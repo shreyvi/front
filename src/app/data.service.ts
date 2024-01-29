@@ -43,4 +43,8 @@ export class DataService {
   addUser(data:any){
     return this.http.post(`${this.API_URL}/addUser/`, data);
   }
+
+  editUser(id: string, data:any){
+    return this.http.put(`${this.API_URL}/editUser/${id}`, data);
+  }
 } 

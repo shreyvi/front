@@ -1,5 +1,7 @@
 import { Component ,OnInit} from '@angular/core';
 import { DataService } from '../data.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DialogueComponent } from '../dialogue/dialogue.component';
 
 
 
@@ -48,7 +50,7 @@ export class HomeComponent implements OnInit {
   salaryC:PeriodicElement[] = [];
   salaryCCount!:number;
   
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService,private dialog:MatDialog) {}
 
   ngOnInit() {
     this.dataService.fetchEmployee().subscribe(
@@ -124,9 +126,29 @@ export class HomeComponent implements OnInit {
     
   }
   
-  editUser(user: any){
-    console.log(user);
+  // dialogue(user: any): void {
+  //   const id = user.ID;
+  //   this.dataService.dialogue(id).subscribe(
+  //     () =>{
+  //       console.log("Successfully edited the User!");
+  //       this.ngOnInit();
+  //     },
+  //     (error) =>{
+  //       console.error("Error While editing the User!", error);
+  //     }
+  //   );
+  // }
+
+  editUser(employee: any){
+    console.log("editbutton Click");
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {employee};
+    const dialogRef = this.dialog.open(DialogueComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(userAdded => {
+      this.ngOnInit();
+    });
   }
+  
 
   deleteUser(user: any){
     const id = user.ID;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { DataService } from '../data.service';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -27,7 +28,7 @@ export class ProfileComponent implements OnInit{
   }
   
   GetUserDetails(){
-    const id = '15'; 
+    const id = '2'; 
     this.dataService.getLoggedInUserData(id).subscribe(
       (data) =>{
         this.FirstName = data.fetchresult[0].FirstName;
@@ -48,7 +49,7 @@ export class ProfileComponent implements OnInit{
         contact: this.Contact, 
         department: this.Department
       }
-      const id = '15';
+      const id = '2';
       this.dataService.UpdateLoggedInUserData(id, data).subscribe(
         () => {
           console.log('Update Successfully');

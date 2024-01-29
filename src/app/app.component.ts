@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog'; // Import MatDialog, not MatDialogModule
+import { DialogueComponent } from './dialogue/dialogue.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dashboardnew';
+
+  constructor(private matdialog: MatDialog) {} // Use MatDialog here
+
+  editUser() {
+    this.matdialog.open(DialogueComponent);
+  }
 }

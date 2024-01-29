@@ -4,12 +4,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdduserComponent } from './adduser/adduser.component';
+import { DialogueComponent } from './dialogue/dialogue.component';
 
 const routes: Routes = [
   { path: 'home', component:HomeComponent },
   { path: 'profile', component: ProfileComponent},
   { path: 'navbar', component:NavbarComponent },
   { path: 'add', component:AdduserComponent },
+  { path: 'dialogue', component: DialogueComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
